@@ -1,4 +1,4 @@
-package com.pahanaedu.controllers;
+package com.pahanaedusystem.controllers;
 
 import com.pahanaedu.entities.Bill;
 import com.pahanaedu.entities.Book;
