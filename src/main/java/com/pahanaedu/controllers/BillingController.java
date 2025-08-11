@@ -12,10 +12,6 @@ import com.pahanaedu.services.impl.BillServiceImpl;
 import com.pahanaedu.services.impl.BookServiceImpl;
 import com.pahanaedu.services.impl.CustomerServiceImpl;
 import com.pahanaedu.patterns.builder.BillBuilder;
-import com.pahanaedu.patterns.strategy.DiscountStrategy;
-import com.pahanaedu.patterns.strategy.PercentageDiscountStrategy;
-import com.pahanaedu.patterns.strategy.FixedDiscountStrategy;
-import com.pahanaedu.patterns.strategy.NoDiscountStrategy;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
