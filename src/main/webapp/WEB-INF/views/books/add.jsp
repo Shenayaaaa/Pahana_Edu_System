@@ -343,18 +343,7 @@
         </div>
       </div>
 
-      <!-- Quick Import Option -->
-      <div class="card mt-4">
-        <div class="card-header bg-success text-white">
-          <h5 class="mb-0"><i class="fas fa-download"></i> Or Import from Google Books</h5>
-        </div>
-        <div class="card-body">
-          <p class="mb-3">Already have an ISBN? Search and import book details automatically from Google Books.</p>
-          <a href="${pageContext.request.contextPath}/books/google-search" class="btn btn-success">
-            <i class="fas fa-search"></i> Search Google Books
-          </a>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Books - Pahana Education</title>
+  <title>All Books</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -304,7 +304,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="${pageContext.request.contextPath}/dashboard">
-      <i class="fas fa-graduation-cap"></i> Pahana Education
+      <i class="fas fa-graduation-cap"></i> Pahana Edu Book Store
     </a>
     <div class="navbar-nav ms-auto">
             <span class="navbar-text me-3">
@@ -328,9 +328,6 @@
       <a href="${pageContext.request.contextPath}/books/add" class="btn btn-primary me-2">
         <i class="fas fa-plus"></i> Add New Book
       </a>
-      <a href="${pageContext.request.contextPath}/books/google-search" class="btn btn-success">
-        <i class="fas fa-download"></i> Import from Google
-      </a>
     </div>
   </div>
 
@@ -338,7 +335,7 @@
   <div class="row mb-4">
     <div class="col-md-8">
       <form method="GET" action="${pageContext.request.contextPath}/books/search" class="d-flex">
-        <input type="text" class="form-control me-2" name="q" placeholder="Search books by title, author, or ISBN..."
+        <input type="text" class="form-control me-2" name="q" placeholder="Search books by title, author...."
                value="${searchQuery}" id="searchInput" autocomplete="off">
         <button type="submit" class="btn btn-outline-primary">
           <i class="fas fa-search"></i> Search
