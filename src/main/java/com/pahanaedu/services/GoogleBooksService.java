@@ -1,8 +1,7 @@
-// src/main/java/com/pahanaedu/services/GoogleBooksService.java
 package com.pahanaedu.services;
 
 import com.pahanaedu.entities.Book;
-import com.pahanaedu.utils.Constants;
+import com.pahanaedu.utils.constants;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -40,8 +39,8 @@ public class GoogleBooksService {
     public List<Book> searchBooks(String query, int maxResults) {
         try {
             String encodedQuery = URLEncoder.encode(query, StandardCharsets.UTF_8);
-            String url = Constants.GOOGLE_BOOKS_API_URL + "?q=" + encodedQuery +
-                    "&maxResults=" + maxResults + "&key=" + Constants.GOOGLE_BOOKS_API_KEY;
+            String url = constants.GOOGLE_BOOKS_API_URL + "?q=" + encodedQuery +
+                    "&maxResults=" + maxResults + "&key=" + constants.GOOGLE_BOOKS_API_KEY;
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
@@ -65,7 +64,7 @@ public class GoogleBooksService {
 
     public Book getBookByGoogleId(String googleBookId) {
         try {
-            String url = Constants.GOOGLE_BOOKS_API_URL + "/" + googleBookId + "?key=" + Constants.GOOGLE_BOOKS_API_KEY;
+            String url = constants.GOOGLE_BOOKS_API_URL + "/" + googleBookId + "?key=" + constants.GOOGLE_BOOKS_API_KEY;
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))

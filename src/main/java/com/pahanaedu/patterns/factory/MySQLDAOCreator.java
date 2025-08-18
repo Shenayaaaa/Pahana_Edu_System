@@ -9,6 +9,10 @@ public class MySQLDAOCreator<T> extends DAOCreator<T> {
     @Override
     @SuppressWarnings("unchecked")
     public DAOProduct<T> createDAO(String type) {
+        if (type == null || type.trim().isEmpty()) {
+            throw new IllegalArgumentException("DAO type cannot be null or empty");
+        }
+
         switch (type) {
             case "customer":
                 return (DAOProduct<T>) new CustomerDAOProduct(new CustomerDAOImpl());
