@@ -9,6 +9,296 @@
   <title>All Books - Pahana Education</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-purple: #6a4c93;
+      --dark-purple: #4a306d;
+      --light-purple: #8e7cc3;
+      --accent-purple: #9d8df1;
+      --subtle-purple: #f0ecff;
+      --gradient-start: #6a4c93;
+      --gradient-end: #8e7cc3;
+      --surface-white: #ffffff;
+      --surface-light: #f8f9fe;
+      --text-dark: #2d1b4e;
+      --text-muted: #6c757d;
+      --shadow-light: rgba(106, 76, 147, 0.1);
+      --shadow-medium: rgba(106, 76, 147, 0.2);
+      --border-light: #e5e1f7;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+      box-shadow: 0 4px 20px var(--shadow-light);
+    }
+
+    .navbar-brand {
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .navbar-brand:hover {
+      color: var(--accent-purple) !important;
+    }
+
+    .navbar-text {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-weight: 500;
+    }
+
+    .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-weight: 600;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      color: white;
+    }
+
+    h2 {
+      color: var(--text-dark);
+      font-weight: 800;
+      font-size: 2.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-medium);
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+      background: linear-gradient(135deg, #059669, #10b981);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-outline-primary {
+      border-color: var(--primary-purple);
+      color: var(--primary-purple);
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary-purple);
+      border-color: var(--primary-purple);
+      color: white;
+    }
+
+    .btn-outline-secondary {
+      border-color: var(--text-muted);
+      color: var(--text-muted);
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--text-muted);
+      border-color: var(--text-muted);
+      color: white;
+    }
+
+    .form-control {
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      background: var(--surface-white);
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 0.2rem rgba(106, 76, 147, 0.25);
+      background: white;
+    }
+
+    .alert {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      font-weight: 500;
+    }
+
+    .alert-success {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: white;
+    }
+
+    .alert-danger {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+      color: white;
+    }
+
+    .btn-close {
+      filter: brightness(0) invert(1);
+    }
+
+    .card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px var(--shadow-light);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .bg-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple)) !important;
+    }
+
+    .bg-success {
+      background: linear-gradient(135deg, #10b981, #34d399) !important;
+    }
+
+    .bg-warning {
+      background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .table-dark {
+      background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+    }
+
+    .table thead th {
+      background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+      border: none;
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .table tbody td {
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-dark);
+      vertical-align: middle;
+    }
+
+    .table-hover tbody tr:hover {
+      background: linear-gradient(135deg, var(--subtle-purple), rgba(255, 255, 255, 0.8));
+    }
+
+    .badge.bg-danger {
+      background: linear-gradient(135deg, #ef4444, #f87171) !important;
+    }
+
+    .badge.bg-success {
+      background: linear-gradient(135deg, #10b981, #34d399) !important;
+    }
+
+    .badge.bg-secondary {
+      background: linear-gradient(135deg, var(--text-muted), #9ca3af) !important;
+    }
+
+    .btn-outline-danger {
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+
+    .btn-outline-danger:hover {
+      background: #ef4444;
+      border-color: #ef4444;
+      color: white;
+    }
+
+    .border-warning {
+      border-color: var(--accent-purple) !important;
+    }
+
+    .list-group-item:hover {
+      background: var(--subtle-purple);
+    }
+
+    .modal-content {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+      border-bottom: 1px solid var(--border-light);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .modal-title {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .modal-body {
+      color: var(--text-dark);
+    }
+
+    .btn-danger {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-danger:hover {
+      background: linear-gradient(135deg, #dc2626, #ef4444);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--text-muted), #9ca3af);
+      border: none;
+      font-weight: 600;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #6b7280, var(--text-muted));
+    }
+
+    .text-center i.fa-3x {
+      color: var(--light-purple) !important;
+      opacity: 0.7;
+    }
+
+    .btn-sm {
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    strong {
+      color: var(--text-dark);
+    }
+
+    .font-monospace {
+      color: var(--text-dark);
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

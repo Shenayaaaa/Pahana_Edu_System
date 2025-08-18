@@ -9,6 +9,265 @@
     <title>Bills - PahanaEdu POS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6a4c93;
+            --dark-purple: #4a306d;
+            --light-purple: #8e7cc3;
+            --accent-purple: #9d8df1;
+            --subtle-purple: #f0ecff;
+            --gradient-start: #6a4c93;
+            --gradient-end: #8e7cc3;
+            --surface-white: #ffffff;
+            --surface-light: #f8f9fe;
+            --text-dark: #2d1b4e;
+            --text-muted: #6c757d;
+            --shadow-light: rgba(106, 76, 147, 0.1);
+            --shadow-medium: rgba(106, 76, 147, 0.2);
+            --border-light: #e5e1f7;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--primary-purple) 0%, var(--dark-purple) 100%) !important;
+            box-shadow: 4px 0 20px var(--shadow-light);
+            border-radius: 0 20px 20px 0;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 5px 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)) !important;
+            color: white !important;
+            transform: translateX(8px);
+        }
+
+        .nav-link i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        main {
+            background: transparent;
+            padding: 30px 40px;
+        }
+
+        .h2 {
+            color: var(--text-dark);
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .border-bottom {
+            border-color: var(--border-light) !important;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .alert {
+            border: none;
+            border-radius: 16px;
+            padding: 18px 25px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            color: white;
+        }
+
+        .btn-close {
+            filter: brightness(0) invert(1);
+        }
+
+        .card {
+            background: var(--surface-white);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+            border-bottom: 1px solid var(--border-light);
+            padding: 25px 30px;
+        }
+
+        .card-title {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0;
+        }
+
+        .card-body {
+            padding: 0;
+        }
+
+        .table {
+            margin: 0;
+        }
+
+        .table thead th {
+            background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+            border: none;
+            padding: 20px 25px;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table tbody td {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-dark);
+            vertical-align: middle;
+        }
+
+        .table-striped > tbody > tr:nth-of-type(odd) > td {
+            background: var(--subtle-purple);
+        }
+
+        .table-hover tbody tr:hover {
+            background: linear-gradient(135deg, var(--subtle-purple), rgba(255, 255, 255, 0.8));
+            transform: scale(1.002);
+        }
+
+        .badge {
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bg-info {
+            background: linear-gradient(135deg, var(--accent-purple), var(--light-purple)) !important;
+        }
+
+        .bg-success {
+            background: linear-gradient(135deg, #10b981, #34d399) !important;
+        }
+
+        .bg-warning {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+        }
+
+        .bg-danger {
+            background: linear-gradient(135deg, #ef4444, #f87171) !important;
+        }
+
+        .bg-secondary {
+            background: linear-gradient(135deg, var(--text-muted), #9ca3af) !important;
+        }
+
+        .text-success {
+            color: #10b981 !important;
+        }
+
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+
+        .btn-group-sm .btn {
+            border-radius: 8px;
+            margin: 0 2px;
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary-purple);
+            color: var(--primary-purple);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-purple);
+            border-color: var(--primary-purple);
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--text-muted);
+            color: var(--text-muted);
+        }
+
+        .btn-outline-secondary:hover {
+            background: var(--text-muted);
+            border-color: var(--text-muted);
+        }
+
+        .text-center i.fa-3x {
+            color: var(--light-purple) !important;
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+
+        .text-center h5 {
+            color: var(--text-dark) !important;
+            font-weight: 600;
+        }
+
+        .text-center p {
+            color: var(--text-muted) !important;
+        }
+
+        .py-4 {
+            padding: 60px 40px !important;
+        }
+
+        strong {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        small {
+            font-size: 0.85em;
+        }
+
+        .table-responsive {
+            border-radius: 0 0 20px 20px;
+        }
+    </style>
 </head>
 <body>
 <div class="container-fluid">

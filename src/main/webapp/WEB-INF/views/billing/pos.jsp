@@ -6,17 +6,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Point of Sale - PahanaEdu</title>
+  <title>My Cart Pahana Book Shop</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --primary-purple: #6a4c93;
+      --dark-purple: #4a306d;
+      --light-purple: #8e7cc3;
+      --accent-purple: #9d8df1;
+      --subtle-purple: #f0ecff;
+      --gradient-start: #6a4c93;
+      --gradient-end: #8e7cc3;
+      --surface-white: #ffffff;
+      --surface-light: #f8f9fe;
+      --text-dark: #2d1b4e;
+      --text-muted: #6c757d;
+      --shadow-light: rgba(106, 76, 147, 0.1);
+      --shadow-medium: rgba(106, 76, 147, 0.2);
+      --border-light: #e5e1f7;
+      --card-shadow: 0 10px 30px var(--shadow-light);
+      --card-hover-shadow: 0 20px 40px var(--shadow-medium);
       --border-radius: 15px;
     }
 
@@ -25,14 +36,14 @@
     }
 
     body {
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
       min-height: 100vh;
+      color: var(--text-dark);
     }
 
-    /* Enhanced Navbar */
     .navbar {
-      background: var(--primary-gradient) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+      box-shadow: 0 4px 20px var(--shadow-light);
       padding: 1rem 0;
     }
 
@@ -40,11 +51,13 @@
       font-weight: 700;
       font-size: 1.5rem;
       text-decoration: none;
+      color: white !important;
     }
 
     .navbar-brand:hover {
       transform: scale(1.05);
       transition: all 0.3s ease;
+      color: var(--accent-purple) !important;
     }
 
     .nav-link {
@@ -54,20 +67,21 @@
       padding: 0.5rem 1rem !important;
       transition: all 0.3s ease;
       text-decoration: none;
+      color: rgba(255, 255, 255, 0.9) !important;
     }
 
     .nav-link:hover {
       background: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
+      color: white !important;
     }
 
-    /* Beautiful Cards */
     .card {
       border: none;
       border-radius: var(--border-radius);
       box-shadow: var(--card-shadow);
       transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.95);
+      background: var(--surface-white);
       backdrop-filter: blur(10px);
     }
 
@@ -77,7 +91,7 @@
     }
 
     .card-header {
-      background: var(--primary-gradient);
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
       color: white;
       border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
       border: none;
@@ -85,13 +99,12 @@
       padding: 1.5rem;
     }
 
-    /* Book Cards */
     .book-card {
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       border-radius: var(--border-radius);
       overflow: hidden;
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+      background: linear-gradient(145deg, var(--surface-white) 0%, var(--subtle-purple) 100%);
       position: relative;
     }
 
@@ -102,7 +115,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: var(--success-gradient);
+      background: linear-gradient(135deg, var(--accent-purple), var(--light-purple));
       transform: scaleX(0);
       transition: transform 0.3s ease;
     }
@@ -113,7 +126,7 @@
 
     .book-card:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 25px 50px var(--shadow-medium);
     }
 
     .book-card .card-body {
@@ -122,14 +135,13 @@
 
     .book-card .card-title {
       font-weight: 600;
-      color: #2d3748;
+      color: var(--text-dark);
       margin-bottom: 0.5rem;
       line-height: 1.3;
     }
 
-    /* Price Styling */
     .price-tag {
-      background: var(--success-gradient);
+      background: linear-gradient(135deg, #10b981, #34d399);
       color: white;
       padding: 0.3rem 0.8rem;
       border-radius: 20px;
@@ -138,7 +150,6 @@
       display: inline-block;
     }
 
-    /* Stock Badge */
     .stock-badge {
       position: absolute;
       top: 10px;
@@ -149,25 +160,23 @@
       font-weight: 600;
     }
 
-    /* Enhanced Cart */
     .cart-item {
       border: none;
-      background: linear-gradient(145deg, #f8f9ff 0%, #ffffff 100%);
+      background: linear-gradient(145deg, var(--subtle-purple) 0%, var(--surface-white) 100%);
       border-radius: 10px;
       margin-bottom: 1rem;
       padding: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 15px var(--shadow-light);
       transition: all 0.3s ease;
     }
 
     .cart-item:hover {
       transform: translateX(5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 25px var(--shadow-medium);
     }
 
-    /* Quantity Controls */
     .quantity-controls {
-      background: #f8f9fa;
+      background: var(--surface-light);
       border-radius: 25px;
       padding: 0.2rem;
       display: inline-flex;
@@ -179,7 +188,7 @@
       height: 30px;
       border-radius: 50%;
       border: none;
-      background: var(--primary-gradient);
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
       color: white;
       display: flex;
       align-items: center;
@@ -189,7 +198,7 @@
 
     .quantity-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 15px var(--shadow-medium);
     }
 
     .quantity-input {
@@ -198,9 +207,9 @@
       background: transparent;
       text-align: center;
       font-weight: 600;
+      color: var(--text-dark);
     }
 
-    /* Enhanced Alerts */
     .alert {
       border: none;
       border-radius: var(--border-radius);
@@ -209,16 +218,17 @@
     }
 
     .alert-danger {
-      background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(255, 193, 203, 0.1) 100%);
-      border-left: 4px solid #dc3545;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(248, 113, 113, 0.1) 100%);
+      border-left: 4px solid #ef4444;
+      color: #dc2626;
     }
 
     .alert-success {
-      background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(209, 231, 221, 0.1) 100%);
-      border-left: 4px solid #198754;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%);
+      border-left: 4px solid #10b981;
+      color: #059669;
     }
 
-    /* Search Box */
     .search-container {
       position: relative;
       max-width: 400px;
@@ -226,16 +236,17 @@
 
     .search-container input {
       border-radius: 25px;
-      border: 2px solid transparent;
-      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid var(--border-light);
+      background: var(--surface-white);
       padding: 0.75rem 1rem 0.75rem 3rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px var(--shadow-light);
       transition: all 0.3s ease;
+      color: var(--text-dark);
     }
 
     .search-container input:focus {
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.1);
     }
 
     .search-container .search-icon {
@@ -243,12 +254,11 @@
       left: 1rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #6c757d;
+      color: var(--text-muted);
     }
 
-    /* Checkout Button */
     .checkout-btn {
-      background: var(--secondary-gradient);
+      background: linear-gradient(135deg, var(--accent-purple), var(--light-purple));
       border: none;
       border-radius: 25px;
       padding: 1rem 2rem;
@@ -256,30 +266,31 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
       transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+      box-shadow: 0 8px 25px var(--shadow-medium);
+      color: white;
     }
 
     .checkout-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
+      box-shadow: 0 15px 35px var(--shadow-medium);
+      background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
     }
 
-    /* Form Styling */
     .form-control, .form-select {
       border-radius: 10px;
-      border: 2px solid #e9ecef;
+      border: 2px solid var(--border-light);
       transition: all 0.3s ease;
+      color: var(--text-dark);
     }
 
     .form-control:focus, .form-select:focus {
-      border-color: #667eea;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.1);
     }
 
-    /* Empty Cart */
     .empty-cart {
       text-align: center;
-      color: #6c757d;
+      color: var(--text-muted);
       padding: 3rem 1rem;
     }
 
@@ -288,7 +299,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Loading Animation */
     @keyframes pulse {
       0% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -299,7 +309,52 @@
       animation: pulse 1.5s infinite;
     }
 
-    /* Mobile Responsive */
+    .btn-sm {
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+
+    .btn-outline-danger {
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+
+    .btn-outline-danger:hover {
+      background: #ef4444;
+      color: white;
+    }
+
+    .bg-success {
+      background: linear-gradient(135deg, #10b981, #34d399) !important;
+    }
+
+    .bg-warning {
+      background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+    }
+
+    .bg-danger {
+      background: linear-gradient(135deg, #ef4444, #f87171) !important;
+    }
+
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    .form-label {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .container-fluid {
         padding: 1rem;
@@ -319,7 +374,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="${pageContext.request.contextPath}/">
-      <i class="fas fa-book-open"></i> PahanaEdu POS
+      <i class="fas fa-book-open"></i> Book Cart Pahana Education
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -492,7 +547,7 @@
               <c:otherwise>
                 <div class="empty-cart">
                   <i class="fas fa-shopping-cart fa-4x"></i>
-                  <h5 class="mt-3">Your cart is empty</h5>
+                  <h5 class="mt-3">Cart is empty</h5>
                   <p class="text-muted">Click on books to add them to your cart</p>
                 </div>
               </c:otherwise>
@@ -561,7 +616,7 @@
 
               <button type="submit" class="btn checkout-btn w-100">
                 <i class="fas fa-credit-card me-2"></i>
-                Complete Purchase
+                Purchase Me
               </button>
             </form>
           </c:if>
@@ -581,7 +636,7 @@
 
   function addToCart(isbn, availableStock) {
     if (availableStock <= 0) {
-      showAlert('This book is out of stock!', 'danger');
+      showAlert('Out of stock!', 'danger');
       return;
     }
 
@@ -622,7 +677,7 @@
   }
 
   function removeFromCart(isbn) {
-    if (confirm('Remove this item from cart?')) {
+    if (confirm('Remvoing this item will remove it from your cart. Are you sure?')) {
       window.location.href = '${pageContext.request.contextPath}/billing/remove-item?isbn=' + isbn;
     }
   }

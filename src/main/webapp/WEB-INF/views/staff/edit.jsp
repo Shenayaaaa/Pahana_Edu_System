@@ -9,6 +9,140 @@
   <title>Edit Staff - Pahana Education</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-purple: #6a4c93;
+      --dark-purple: #4a306d;
+      --light-purple: #8e7cc3;
+      --accent-purple: #9d8df1;
+      --subtle-purple: #f0ecff;
+      --gradient-start: #6a4c93;
+      --gradient-end: #8e7cc3;
+      --surface-white: #ffffff;
+      --surface-light: #f8f9fe;
+      --text-dark: #2d1b4e;
+      --text-muted: #6c757d;
+      --shadow-light: rgba(106, 76, 147, 0.1);
+      --shadow-medium: rgba(106, 76, 147, 0.2);
+      --border-light: #e5e1f7;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      color: var(--primary-purple) !important;
+    }
+    .card {
+      box-shadow: 0 15px 35px var(--shadow-light);
+      border: 2px solid var(--border-light);
+      border-radius: 25px;
+      overflow: hidden;
+    }
+    .form-label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .text-danger {
+      color: #dc3545 !important;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 0.25rem var(--shadow-light);
+      background-color: var(--subtle-purple);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+      border: none;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--shadow-medium);
+    }
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--text-muted), #95a5a6);
+      border: none;
+      border-radius: 20px;
+      font-weight: 600;
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #6c757d, var(--text-muted));
+      color: white;
+      transform: translateY(-2px);
+    }
+    body {
+      background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%) !important;
+      min-height: 100vh;
+    }
+    .navbar-dark.bg-dark {
+      background: var(--surface-white) !important;
+      border-bottom: 3px solid var(--primary-purple);
+    }
+    .navbar-text {
+      background: var(--subtle-purple) !important;
+      padding: 0.5rem 1rem !important;
+      border-radius: 20px !important;
+      color: var(--text-dark) !important;
+    }
+    .btn-outline-light {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      border: none;
+      color: white;
+      border-radius: 15px;
+      font-weight: 600;
+    }
+    .btn-outline-light:hover {
+      background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+      color: white;
+    }
+    .alert-danger {
+      background: rgba(220, 53, 69, 0.1);
+      border: 2px solid rgba(220, 53, 69, 0.2);
+      border-radius: 15px;
+      border-left: 5px solid #dc3545;
+    }
+    .alert-info {
+      background: var(--subtle-purple);
+      border: 2px solid var(--border-light);
+      border-radius: 15px;
+      border-left: 5px solid var(--primary-purple);
+      color: var(--text-dark);
+    }
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+      color: white;
+      border-bottom: 2px solid var(--border-light);
+      padding: 1.5rem;
+    }
+    .card-body {
+      padding: 2rem;
+    }
+    .form-control {
+      border: 2px solid var(--border-light);
+      border-radius: 15px;
+      padding: 0.75rem 1rem;
+      font-weight: 500;
+    }
+    .form-control:disabled {
+      background-color: var(--subtle-purple);
+      border-color: var(--border-light);
+    }
+    .form-check-input:checked {
+      background-color: var(--primary-purple);
+      border-color: var(--primary-purple);
+    }
+    h4 {
+      color: white !important;
+    }
+    .container {
+      max-width: 1200px;
+    }
+    .form-text {
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
