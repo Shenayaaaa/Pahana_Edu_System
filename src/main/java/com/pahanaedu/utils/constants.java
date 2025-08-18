@@ -1,6 +1,6 @@
 package com.pahanaedu.utils;
 
-public class constants {
+public class Constants {
     private static final EnvironmentConfig env = EnvironmentConfig.getInstance();
 
     // Database
