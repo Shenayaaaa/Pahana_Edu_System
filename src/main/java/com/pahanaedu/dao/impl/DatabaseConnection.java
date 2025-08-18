@@ -11,7 +11,7 @@ public class DatabaseConnection {
     private static DatabaseConnection instance;
     private HikariDataSource dataSource;
     private static final Dotenv dotenv = Dotenv.configure()
-            .directory("C:/Users/ASUS TUF/IdeaProjects/PahanaEdu-POS")
+            .directory("C:/Users/shena/IdeaProjects/PahanaEdu-POS")
             .ignoreIfMissing()
             .load();
 
@@ -37,7 +37,7 @@ public class DatabaseConnection {
             // Fix the truncated URL issue
             if (dbUrl == null || dbUrl.trim().isEmpty() || !dbUrl.contains("databaseName=")) {
                 // Use fallback connection string since dotenv is truncating at semicolon
-                dbUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=PahanaEdu;trustServerCertificate=true;encrypt=false";
+                dbUrl = "jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=Pahana_System;trustServerCertificate=true;encrypt=true";
                 System.out.println("Using fallback DB_URL due to parsing issue");
             }
 

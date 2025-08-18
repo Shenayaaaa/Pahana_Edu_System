@@ -3,7 +3,7 @@ package com.pahanaedu.dao.impl;
 import com.pahanaedu.dao.BillDAO;
 import com.pahanaedu.entities.Bill;
 import com.pahanaedu.entities.BillItem;
-import com.pahanaedu.utils.Constants;
+import com.pahanaedu.utils.constants;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -237,16 +237,16 @@ public class BillDAOImpl implements BillDAO {
         try (Connection conn = dbConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, Constants.BILL_PREFIX + "%");
+            stmt.setString(1, constants.BILL_PREFIX + "%");
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     String lastBillId = rs.getString("bill_id");
-                    String numberPart = lastBillId.substring(Constants.BILL_PREFIX.length());
+                    String numberPart = lastBillId.substring(constants.BILL_PREFIX.length());
                     int nextNumber = Integer.parseInt(numberPart) + 1;
-                    return Constants.BILL_PREFIX + String.format("%06d", nextNumber);
+                    return constants.BILL_PREFIX + String.format("%06d", nextNumber);
                 } else {
-                    return Constants.BILL_PREFIX + "000001";
+                    return constants.BILL_PREFIX + "000001";
                 }
             }
         } catch (SQLException e) {

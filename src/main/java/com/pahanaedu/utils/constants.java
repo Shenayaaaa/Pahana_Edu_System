@@ -1,6 +1,6 @@
 package com.pahanaedu.utils;
 
-public class Constants {
+public class constants {
     private static final EnvironmentConfig env = EnvironmentConfig.getInstance();
 
     // Database
@@ -47,7 +47,7 @@ public class Constants {
     // Pagination
     public static final int DEFAULT_PAGE_SIZE = env.getIntProperty("default.page.size", 10);
 
-    private Constants() {
+    private constants() {
         // Utility class
     }
 }

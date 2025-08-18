@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect(request.getContextPath() + "/landingPage");
+    response.sendRedirect(request.getContextPath() + "/login");
 %>
