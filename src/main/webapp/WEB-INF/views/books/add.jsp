@@ -8,6 +8,212 @@
   <title>Add New Book - Pahana Education</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-purple: #6a4c93;
+      --dark-purple: #4a306d;
+      --light-purple: #8e7cc3;
+      --accent-purple: #9d8df1;
+      --subtle-purple: #f0ecff;
+      --gradient-start: #6a4c93;
+      --gradient-end: #8e7cc3;
+      --surface-white: #ffffff;
+      --surface-light: #f8f9fe;
+      --text-dark: #2d1b4e;
+      --text-muted: #6c757d;
+      --shadow-light: rgba(106, 76, 147, 0.1);
+      --shadow-medium: rgba(106, 76, 147, 0.2);
+      --border-light: #e5e1f7;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+      box-shadow: 0 4px 20px var(--shadow-light);
+    }
+
+    .navbar-brand {
+      color: white !important;
+      font-weight: 700;
+    }
+
+    .navbar-brand:hover {
+      color: var(--accent-purple) !important;
+    }
+
+    .btn-outline-light {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-weight: 600;
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      color: white;
+    }
+
+    .card {
+      background: var(--surface-white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px var(--shadow-light);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--subtle-purple), var(--surface-white));
+      border-bottom: 1px solid var(--border-light);
+      padding: 20px 25px;
+    }
+
+    .card-header h4 {
+      color: var(--text-dark);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .bg-success {
+      background: linear-gradient(135deg, #10b981, #34d399) !important;
+    }
+
+    .card-body {
+      padding: 25px;
+    }
+
+    .alert {
+      border: none;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      font-weight: 500;
+    }
+
+    .alert-danger {
+      background: linear-gradient(135deg, #ef4444, #f87171);
+      color: white;
+    }
+
+    .form-label {
+      color: var(--text-dark);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 12px 15px;
+      background: var(--surface-white);
+      transition: all 0.3s ease;
+      color: var(--text-dark);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 0.2rem rgba(106, 76, 147, 0.25);
+      background: white;
+    }
+
+    .form-select {
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 12px 15px;
+      background: var(--surface-white);
+      color: var(--text-dark);
+    }
+
+    .form-select:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 0.2rem rgba(106, 76, 147, 0.25);
+    }
+
+    .form-text {
+      color: var(--text-muted);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow-medium);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--text-muted), #9ca3af);
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-weight: 600;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #6b7280, var(--text-muted));
+    }
+
+    .btn-success {
+      background: linear-gradient(135deg, #10b981, #34d399);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-success:hover {
+      background: linear-gradient(135deg, #059669, #10b981);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .text-danger {
+      color: #ef4444 !important;
+    }
+
+    .text-white {
+      color: white !important;
+    }
+
+    .form-check-input:checked {
+      background-color: var(--primary-purple);
+      border-color: var(--primary-purple);
+    }
+
+    .form-check-input:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 0.25rem rgba(106, 76, 147, 0.25);
+    }
+
+    .form-check-label {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    h5 {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    p {
+      color: var(--text-dark);
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

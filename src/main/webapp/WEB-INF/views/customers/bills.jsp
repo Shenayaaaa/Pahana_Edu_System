@@ -6,15 +6,264 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Bills - ${customer.name} - Pahana Education</title>
+  <title>Customer Bills - ${customer.name} - Pahana Edu Book Store</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-purple: #6a4c93;
+      --dark-purple: #4a306d;
+      --light-purple: #8e7cc3;
+      --accent-purple: #9d8df1;
+      --subtle-purple: #f0ecff;
+      --gradient-start: #6a4c93;
+      --gradient-end: #8e7cc3;
+      --surface-white: #ffffff;
+      --surface-light: #f8f9fe;
+      --text-dark: #2d1b4e;
+      --text-muted: #6c757d;
+      --shadow-light: rgba(106, 76, 147, 0.1);
+      --shadow-medium: rgba(106, 76, 147, 0.2);
+      --border-light: #e5e1f7;
+      --card-shadow: 0 10px 30px var(--shadow-light);
+      --card-hover-shadow: 0 20px 40px var(--shadow-medium);
+      --border-radius: 15px;
+    }
+
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+
+    .navbar {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+      box-shadow: 0 4px 20px var(--shadow-light);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+    }
+
+    .navbar-text {
+      color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    .card {
+      background: var(--surface-white);
+      border-radius: var(--border-radius);
+      border: none;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-hover-shadow);
+    }
+
+    .card-header {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      color: white;
+      border: none;
+      font-weight: 600;
+      border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    }
+
+    .bg-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple)) !important;
+    }
+
+    .table {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px var(--shadow-light);
+    }
+
+    .table th {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      color: white;
+      font-weight: 600;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 0.9rem;
+    }
+
+    .table-dark th {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple)) !important;
+    }
+
+    .table td {
+      border: none;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: middle;
+    }
+
+    .table tbody tr {
+      background: var(--surface-white);
+      transition: all 0.3s ease;
+    }
+
+    .table tbody tr:nth-child(even) {
+      background: var(--surface-light);
+    }
+
+    .table tbody tr:hover {
+      background: var(--subtle-purple);
+      transform: translateX(2px);
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background: var(--surface-light);
+    }
+
+    .table-hover tbody tr:hover {
+      background: var(--subtle-purple);
+    }
+
+    .btn {
+      border-radius: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+      box-shadow: 0 4px 15px var(--shadow-light);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--shadow-medium);
+    }
+
+    .btn-outline-primary {
+      border: 2px solid var(--primary-purple);
+      color: var(--primary-purple);
+      background: transparent;
+    }
+
+    .btn-outline-primary:hover {
+      background: var(--primary-purple);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-light {
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.9);
+      background: transparent;
+    }
+
+    .btn-outline-light:hover {
+      background: white;
+      color: var(--primary-purple);
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      font-size: 0.75em;
+      border-radius: 15px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge.bg-light {
+      background: linear-gradient(135deg, var(--surface-light), var(--subtle-purple)) !important;
+      color: var(--primary-purple) !important;
+    }
+
+    .badge.bg-success {
+      background: linear-gradient(135deg, #10b981, #34d399) !important;
+    }
+
+    .badge.bg-warning {
+      background: linear-gradient(135deg, #f59e0b, #fbbf24) !important;
+    }
+
+    .badge.bg-danger {
+      background: linear-gradient(135deg, #dc3545, #e74c3c) !important;
+    }
+
+    .badge.bg-info {
+      background: linear-gradient(135deg, #17a2b8, #20c997) !important;
+    }
+
+    .badge.bg-secondary {
+      background: linear-gradient(135deg, var(--text-muted), #5a6268) !important;
+    }
+
+    .text-muted {
+      color: var(--text-muted) !important;
+    }
+
+    .text-dark {
+      color: var(--text-dark) !important;
+    }
+
+    .bg-light {
+      background: linear-gradient(145deg, var(--surface-light), var(--subtle-purple)) !important;
+    }
+
+    .bg-dark {
+      background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+    }
+
+    .empty-state {
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-state i {
+      opacity: 0.5;
+      color: var(--primary-purple);
+      margin-bottom: 1rem;
+    }
+
+    .text-center .fa-receipt {
+      color: var(--primary-purple);
+    }
+
+    .card-title {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        margin-bottom: 1rem;
+      }
+
+      .table-responsive {
+        border-radius: var(--border-radius);
+      }
+
+      .btn {
+        margin: 0.25rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <a class="navbar-brand" href="${pageContext.request.contextPath}/dashboard">
-      <i class="fas fa-graduation-cap"></i> Pahana Education
+      <i class="fas fa-graduation-cap"></i> Pahana Edu Book Store
     </a>
     <div class="navbar-nav ms-auto">
             <span class="navbar-text me-3">

@@ -8,6 +8,199 @@
     <title>Add Customer - Pahana Education</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6a4c93;
+            --dark-purple: #4a306d;
+            --light-purple: #8e7cc3;
+            --accent-purple: #9d8df1;
+            --subtle-purple: #f0ecff;
+            --gradient-start: #6a4c93;
+            --gradient-end: #8e7cc3;
+            --surface-white: #ffffff;
+            --surface-light: #f8f9fe;
+            --text-dark: #2d1b4e;
+            --text-muted: #6c757d;
+            --shadow-light: rgba(106, 76, 147, 0.1);
+            --shadow-medium: rgba(106, 76, 147, 0.2);
+            --border-light: #e5e1f7;
+            --card-shadow: 0 10px 30px var(--shadow-light);
+            --card-hover-shadow: 0 20px 40px var(--shadow-medium);
+            --border-radius: 15px;
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--surface-light) 0%, var(--subtle-purple) 100%);
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+
+        .navbar-text {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .card {
+            background: var(--surface-white);
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            color: white;
+            border: none;
+            font-weight: 600;
+            border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 2px solid var(--border-light);
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            padding: 0.75rem 1rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.1);
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.9);
+            background: transparent;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--primary-purple);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--text-muted), #5a6268);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            border-left: 4px solid #dc3545;
+            color: #b91c1c;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, rgba(23, 162, 184, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border-left: 4px solid #17a2b8;
+            color: #0c5460;
+        }
+
+        .text-danger {
+            color: #dc3545 !important;
+        }
+
+        .bg-dark {
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple)) !important;
+        }
+
+        .form-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .form-check-input {
+            border: 2px solid var(--border-light);
+            border-radius: 5px;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--primary-purple);
+            border-color: var(--primary-purple);
+        }
+
+        .form-check-input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(106, 76, 147, 0.1);
+        }
+
+        .form-check-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                margin: 0.25rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -78,11 +271,6 @@
                                 </label>
                                 <div class="form-text">Active customers can make purchases and receive services</div>
                             </div>
-                        </div>
-
-                        <div class="alert alert-info">
-                            <i class="fas fa-info-circle"></i>
-                            <strong>Note:</strong> A unique account number will be automatically generated for this customer.
                         </div>
 
                         <div class="d-flex justify-content-between">
